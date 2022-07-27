@@ -1,8 +1,9 @@
-const FullName = () => {
+const FullName = (props) => {
+  let { name } = props;
   return (
     <>
       <div>
-        <h1 className="text-center">FullName</h1>
+        <h1 className="text-center">{name}</h1>
       </div>
     </>
   );

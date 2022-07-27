@@ -1,7 +1,8 @@
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Title from "./components/Title";
 import ContactBox from "./components/ContactBox";
-const Contact = () => {
+const Contact = (props) => {
+  let infoContact = props;
   return (
     <>
       <MDBContainer>
@@ -12,7 +13,7 @@ const Contact = () => {
         </MDBRow>
         <MDBRow>
           <MDBCol>
-            <ContactBox />
+            <ContactBox info={infoContact} />
           </MDBCol>
         </MDBRow>
       </MDBContainer>

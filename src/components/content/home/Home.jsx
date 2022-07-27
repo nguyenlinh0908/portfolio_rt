@@ -2,7 +2,8 @@ import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Intro from "./components/Intro";
 import Summary from "./components/Summary";
 import Cv from "./components/Cv";
-const Home = () => {
+const Home = (props) => {
+  let { name, summary, cv } = props;
   return (
     <>
       <div
@@ -23,9 +24,9 @@ const Home = () => {
               className="d-flex align-items-center justify-content-center"
             >
               <div>
-                <Intro></Intro>
-                <Summary></Summary>
-                <Cv></Cv>
+                <Intro name={name}></Intro>
+                <Summary summary={summary}></Summary>
+                <Cv cv={cv}></Cv>
               </div>
             </MDBCol>
             <MDBCol md="7"></MDBCol>

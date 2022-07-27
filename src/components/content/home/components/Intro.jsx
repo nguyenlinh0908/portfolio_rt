@@ -1,11 +1,8 @@
-const Intro = () => {
+const Intro = (props) => {
+  let { name } = props;
   return (
     <>
-      <h1
-        className="text-dark"
-      >
-        Hi! I'm Nguyen Ling
-      </h1>
+      <h1 className="text-dark">Hi! I'm {name}</h1>
     </>
   );
 };

@@ -8,42 +8,28 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import ContactInfo from "./ContactInfo";
-const ContactBox = () => {
+const ContactBox = (props) => {
+  let { info } = props;
+  let { email, address, phone } = info;
   return (
     <>
       <MDBContainer>
         <MDBRow>
           <MDBCol md="6">
-            <ContactInfo
-              icon={<MDBIcon fas icon="envelope" />}
-              title="nguyenlinh982001@gmail.com"
-            />
+            <ContactInfo icon={<MDBIcon fas icon="envelope" />} title={email} />
             <ContactInfo
               icon={<MDBIcon fas icon="map-marked" />}
-              title="Hanoi - Vietnam"
+              title={address}
             />
-            <ContactInfo
-              icon={<MDBIcon fas icon="phone" />}
-              title="+84366537***"
-            />
+            <ContactInfo icon={<MDBIcon fas icon="phone" />} title={phone} />
           </MDBCol>
           <MDBCol md="6">
+            <MDBInput className="mb-3" label="Name" id="name" type="text" />
+            <MDBInput className="mb-3" label="Email" id="email" type="email" />
             <MDBInput
               className="mb-3"
-              label="Text input"
-              id="typeText"
-              type="text"
-            />
-            <MDBInput
-              className="mb-3"
-              label="Text input"
-              id="typeText"
-              type="text"
-            />
-            <MDBInput
-              className="mb-3"
-              label="Text input"
-              id="typeText"
+              label="Subject"
+              id="subject"
               type="text"
             />
             <MDBTextArea

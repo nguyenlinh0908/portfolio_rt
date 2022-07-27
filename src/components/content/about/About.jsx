@@ -1,7 +1,8 @@
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import Title from "./components/Title";
 import Summary from "./components/Summary";
-const About = () => {
+const About = (props) => {
+  let { summary } = props;
   return (
     <>
       <MDBContainer>
@@ -12,7 +13,7 @@ const About = () => {
         </MDBRow>
         <MDBRow>
           <MDBCol>
-            <Summary />
+            <Summary summary={summary} />
           </MDBCol>
         </MDBRow>
       </MDBContainer>
