@@ -2,10 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import "mdb-react-ui-kit/dist/css/mdb.min.css"
+import { Provider } from "react-redux";
+import authenticationStore from "./libs/authenticationStore";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={authenticationStore}>
       <App />
- </React.StrictMode>
+    </Provider>
+  </React.StrictMode>
 );

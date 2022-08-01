@@ -6,7 +6,7 @@ const Avatar = (props) => {
       <div className="my-3">
         <img
           className="w-75 square bg-primary rounded-circle"
-          src={process.env.REACT_APP_LOADER + avatar}
+          src={avatar ? process.env.REACT_APP_LOADER + avatar : "avatar.jpg"}
           alt="avatar"
         />
       </div>

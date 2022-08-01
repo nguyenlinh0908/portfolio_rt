@@ -9,16 +9,13 @@ import {
   MDBCol,
 } from "mdb-react-ui-kit";
 import React, { useState } from "react";
-
 import Profile from "./admin/dashboard/Profile";
 const Admin = () => {
   const [verticalActive, setVerticalActive] = useState("tab1");
-
   const handleVerticalClick = (value) => {
     if (value === verticalActive) {
       return;
     }
-
     setVerticalActive(value);
   };
   return (

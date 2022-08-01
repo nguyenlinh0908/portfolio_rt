@@ -36,7 +36,7 @@ const EditProfile = () => {
       .then((result) => {
         let info = result["data"];
         if (info["avatar"]) {
-          setPreviewAvatar(info["avatar"]);
+          setPreviewAvatar(process.env.REACT_APP_LOADER + info["avatar"]);
         }
         setInfo(info);
       })
@@ -69,19 +69,19 @@ const EditProfile = () => {
     // for (var pair of data.entries()) {
     //   console.log(pair[0] + ", " + pair[1]);
     // }
-    // axios({
-    //   method: "PATCH",
-    //   url: `${PORT}${INFO_USER}`,
-    //   data: infoBase,
-    // })
-    //   .then(function (result) {
-    //     //handle success
-    //     console.log(result);
-    //   })
-    //   .catch(function (err) {
-    //     //handle error
-    //     console.log(err);
-    //   });
+    axios({
+      method: "PATCH",
+      url: `${PORT}${INFO_USER}`,
+      data: infoBase,
+    })
+      .then(function (result) {
+        //handle success
+        console.log(result);
+      })
+      .catch(function (err) {
+        //handle error
+        console.log(err);
+      });
     axios({
       method: "PATCH",
       url: `${PORT}${UPLOAD}`,

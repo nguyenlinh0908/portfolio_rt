@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   MDBCard,
   MDBCardBody,
@@ -6,22 +7,33 @@ import {
   MDBCardImage,
   MDBBtn,
 } from "mdb-react-ui-kit";
+import { useEffect, useState } from "react";
 const ProfileShort = () => {
+  const PORT = process.env.REACT_APP_HOST;
+  const INFO_USER = process.env.REACT_APP_INFO_USER;
+  let [info, setInfo] = useState({});
+  useEffect(() => {
+    axios
+      .get(`${PORT}${INFO_USER}`)
+      .then((result) => {
+        let info = result["data"];
+        setInfo(info);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <MDBCard style={{ maxWidth: "22rem" }} className="w-100">
         <MDBCardImage
-          src="https://mdbootstrap.com/img/new/standard/nature/184.webp"
+          src={process.env.REACT_APP_LOADER + info["avatar"]}
           position="top"
-          alt="..."
+          alt="avatar"
         />
         <MDBCardBody className="text-center">
-          <MDBCardTitle>Card title</MDBCardTitle>
-          <MDBCardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </MDBCardText>
-          {/* <MDBBtn href="#">Button</MDBBtn> */}
+          <MDBCardTitle>{info["name"]}</MDBCardTitle>
+          <MDBCardText>{info["summary"]}</MDBCardText>
         </MDBCardBody>
       </MDBCard>
     </>

@@ -36,7 +36,6 @@ const Landing = () => {
       .get(`${HOST}${INFO_USER}`)
       .then((result) => {
         let information = result["data"];
-        console.log(information);
         setInfo(information);
       })
       .catch((err) => {
